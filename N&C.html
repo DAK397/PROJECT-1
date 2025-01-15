@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Networking and Connectivity</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #008B8B;
+            color: white;
+            padding: 40px 10px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        header p {
+            margin: 5px 0 0;
+            font-size: 1.2em;
+        }
+
+        .back-to-home {
+            position: absolute;
+            top: 20px;
+            right: 10px;
+            background-color: #2F4F4F;
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        .back-to-home:hover {
+            background-color: #008B8B;
+        }
+
+        nav {
+            float: left;
+            width: 10%;
+            
+            padding: 15px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            height: 300;
+position: fixed;
+        }
+
+        nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin-bottom: 10px;
+            background: #008B8B ;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        nav a:hover {
+            background: #666;
+        }
+
+        main {
+            margin-left: 15%;
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        section h2 {
+            margin-top: 0;
+            color: #444;
+        }
+
+        
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #008B8B;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            z-index: 1000;
+        }
+
+        #back-to-top.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Linux Networking and Connectivity</h1>
+        <p>Guide to mastering essential Linux commands on Networking & Connectivity</p>
+        <a href="HOME.html" class="back-to-home">Back to Home</a>
+    </header>
+
+    <nav>
+        <a href="#top"><b>Top Command</b></a>
+        <a href="#kill"><b>Kill Command</b></a>
+        <a href="#ifconfig"><b>ifconfig Command</b></a>
+        <a href="#ping"><b>Ping Command</b></a>
+        <a href="#ssh"><b>SSH Command</b></a>
+        <a href="#scp"><b>SCP Command</b></a>
+        <a href="#curl"><b>cURL Command</b></a>
+        <a href="#diff"><b>Diff Command</b></a>
+        <a href="#head"><b>Head Command</b></a>
+        <a href="#tail"><b>Tail Command</b></a>
+    </nav>
+
+    <main>
+       <section id="top">
+    <h2>Top Command</h2>
+    <p>The <strong>top</strong> command generates an ordered list of active processes. The list updates periodically and can be customized extensively to suit your requirements.</p>
+    <p>It provides vital information about:</p>
+    <ul>
+        <li>Memory and CPU utilization</li>
+        <li>Processes and users consuming resources</li>
+        <li>Load averages and more</li>
+    </ul>
+
+    <h3>Options</h3>
+    <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 50%;">
+        <thead>
+            <tr>
+                <th><b>Option</b></th>
+                <th><b>Description</b></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><b>-a</b></td>
+                <td>Sorts processes by allocated memory.</td>
+            </tr>
+            <tr>
+                <td><b>-b</b></td>
+                <td>Starts top in batch mode for output redirection.</td>
+            </tr>
+            <tr>
+                <td><b>-c</b></td>
+                <td>Reverses the last remembered state of command line programs.</td>
+            </tr>
+            <tr>
+                <td><b>-d</b></td>
+                <td>Displays delay between screen updates.</td>
+            </tr>
+            <tr>
+                <td><b>-h</b></td>
+                <td>Shows usage and library version, then quits.</td>
+            </tr>
+            <tr>
+                <td><b>-H</b></td>
+                <td>Reverses the remembered thread state.</td>
+            </tr>
+            <tr>
+                <td><b>-i</b></td>
+                <td>Excludes idle processes from the list.</td>
+            </tr>
+            <tr>
+                <td><b>-m</b></td>
+                <td>Reports memory usage instead of virtual memory.</td>
+            </tr>
+            <tr>
+                <td><b>-M</b></td>
+                <td>Displays memory in floating point units.</td>
+            </tr>
+            <tr>
+                <td><b>-n</b></td>
+                <td>Limits the number of iterations before quitting.</td>
+            </tr>
+            <tr>
+                <td><b>-p</b></td>
+                <td>Monitors processes by specific PIDs.</td>
+            </tr>
+            <tr>
+                <td><b>-s</b></td>
+                <td>Runs securely without certain interactive commands.</td>
+            </tr>
+            <tr>
+                <td><b>-S</b></td>
+                <td>Displays cumulative CPU time.</td>
+            </tr>
+            <tr>
+                <td><b>-U</b></td>
+                <td>Filters processes by a specific user.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Sections in the Top Output</h3>
+    <p>When you run the top command, the output is divided into sections:</p>
+
+    <h4>Header Information:</h4>
+    <ul>
+        <li><strong>uptime:</strong> How long the system has been running.</li>
+        <li><strong>tasks:</strong> Total processes and their states (e.g., running, sleeping).</li>
+        <li><strong>CPU(s):</strong> Percentage of CPU usage by system, user, and idle time.</li>
+        <li><strong>Mem/Swap:</strong> Memory and swap usage.</li>
+    </ul>
+
+    <h4>Process Table:</h4>
+    <p>The process table displays running processes with columns for:</p>
+    <ul>
+        <li><strong>PID:</strong> Process ID.</li>
+        <li><strong>USER:</strong> User running the process.</li>
+        <li><strong>PR:</strong> Process priority.</li>
+        <li><strong>%CPU:</strong> Percentage of CPU usage.</li>
+        <li><strong>%MEM:</strong> Percentage of memory usage.</li>
+        <li><strong>TIME+:</strong> Total CPU time used by the process.</li>
+        <li><strong>COMMAND:</strong> Name of the command or process.</li>
+    </ul>
+
+<img src="1.png" alt="A description of the image">
+
+</section>
+
+
+        <section id="kill">
+    <h2>Kill Command</h2>
+    <p>The <strong>kill</strong> command allows you to terminate processes using their process IDs (PIDs). It is commonly used to stop unresponsive or unnecessary programs.</p>
+    <p>Signals can be sent using kill to specify the type of termination.</p>
+
+    <h3>Options</h3>
+    <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 50%;">
+        <thead>
+            <tr>
+                <th><b>Option</b></th>
+                <th><b>Description</b></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><b>-l</b></td>
+                <td>Lists all available signals.</td>
+            </tr>
+            <tr>
+                <td><b>-s</b></td>
+                <td>Specifies the signal to send.</td>
+            </tr>
+            <tr>
+                <td><b>-9</b></td>
+                <td>Sends the SIGKILL signal, forcibly terminating the process.</td>
+            </tr>
+            <tr>
+                <td><b>-15</b></td>
+                <td>Sends the default SIGTERM signal to terminate gracefully.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Examples</h3>
+    <ul>
+        <li><code>kill -9 1234</code> - Forcefully kills the process with PID 1234.</li>
+        <li><code>kill -15 5678</code> - Gracefully terminates the process with PID 5678.</li>
+    </ul>
+
+<img src="2.png" alt="A description of the image" width="1000" height="150">
+</section>
+
+<section id="ifconfig">
+    <h2>Ifconfig Command</h2>
+    <p>The <strong>ifconfig</strong> command is used for configuring network interfaces and diagnosing network issues. It is commonly employed to enable or disable interfaces, assign IP addresses, and display network configurations.</p>
+
+    <h3>Options</h3>
+    <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 50%;">
+        <thead>
+            <tr>
+                <th><b>Option</b></th>
+                <th><b>Description</b></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><b>up</b></td>
+                <td>Activates the specified network interface.</td>
+            </tr>
+            <tr>
+                <td><b>down</b></td>
+                <td>Deactivates the specified network interface.</td>
+            </tr>
+            <tr>
+                <td><b>inet</b></td>
+                <td>Assigns an IPv4 address to an interface.</td>
+            </tr>
+            <tr>
+                <td><b>netmask</b></td>
+                <td>Sets the netmask for the interface.</td>
+            </tr>
+            <tr>
+                <td><b>broadcast</b></td>
+                <td>Sets the broadcast address for the interface.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Examples</h3>
+    <ul>
+        <li><code>ifconfig eth0 up</code> - Enables the <code>eth0</code> interface.</li>
+        <li><code>ifconfig eth0 192.168.1.2 netmask 255.255.255.0</code> - Assigns an IP and netmask to the <code>eth0</code> interface.</li>
+    </ul>
+<img src="3.png" alt="A description of the image" width="800" height="400">
+
+</section>
+
+
+       <section id="ping">
+    <h2>Ping Command</h2>
+    <p>The <strong>ping</strong> command tests the connectivity between two hosts by sending ICMP echo requests and receiving replies. It is commonly used to troubleshoot network issues.</p>
+
+    <h3>Options</h3>
+    <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 50%;">
+        <thead>
+            <tr>
+                <th><b>Option</b></th>
+                <th><b>Description</b></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><b>-c</b></td>
+                <td>Specifies the number of ping requests to send.</td>
+            </tr>
+            <tr>
+                <td><b>-i</b></td>
+                <td>Sets the interval between ping requests.</td>
+            </tr>
+            <tr>
+                <td><b>-s</b></td>
+                <td>Defines the packet size to send.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Examples</h3>
+    <ul>
+        <li><code>ping -c 4 google.com</code> - Sends 4 ping requests to Google.</li>
+        <li><code>ping -i 2 192.168.1.1</code> - Sends pings to the specified IP every 2 seconds.</li>
+    </ul>
+
+<img src="4.png" alt="A description of the image">
+</section>
+
+
+        <section id="ssh">
+    <h2>SSH Command</h2>
+    <p>The <strong>ssh</strong> command allows secure remote login and command execution over an encrypted connection. It is widely used to manage servers and remote systems.</p>
+
+    <h3>Options</h3>
+    <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 50%;">
+        <thead>
+            <tr>
+                <th><b>Option</b></th>
+                <th><b>Description</b></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><b>-p</b></td>
+                <td>Specifies the port to connect to.</td>
+            </tr>
+            <tr>
+                <td><b>-i</b></td>
+                <td>Specifies the identity file (private key).</td>
+            </tr>
+            <tr>
+                <td><b>-C</b></td>
+                <td>Enables compression to speed up the connection.</td>
+            </tr>
+            <tr>
+                <td><b>-X</b></td>
+                <td>Enables X11 forwarding for graphical applications.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Examples</h3>
+    <ul>
+        <li><code>ssh user@remote-host</code> - Logs into the remote host as <code>user</code>.</li>
+        <li><code>ssh -p 2222 user@remote-host</code> - Connects to the remote host using port 2222.</li>
+        <li><code>ssh -i ~/.ssh/id_rsa user@remote-host</code> - Uses a specific private key for authentication.</li>
+    </ul>
+
+<img src="5.png" alt="A description of the image">
+
+</section>
+
+
+        <section id="scp">
+    <h2>SCP Command</h2>
+    <p>The <strong>scp</strong> command is used to securely copy files between local and remote systems over an SSH connection.</p>
+
+    <h3>Options</h3>
+    <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 50%;">
+        <thead>
+            <tr>
+                <th><b>Option</b></th>
+                <th><b>Description</b></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><b>-P</b></td>
+                <td>Specifies the port for the SSH connection.</td>
+            </tr>
+            <tr>
+                <td><b>-r</b></td>
+                <td>Recursively copies directories.</td>
+            </tr>
+            <tr>
+                <td><b>-i</b></td>
+                <td>Specifies the identity file for authentication.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Examples</h3>
+    <ul>
+        <li><code>scp file.txt user@remote-host:/path/to/destination</code> - Copies <code>file.txt</code> to the remote host.</li>
+        <li><code>scp -r folder user@remote-host:/path/to/destination</code> - Recursively copies <code>folder</code> to the remote host.</li>
+        <li><code>scp -P 2222 file.txt user@remote-host:/path</code> - Uses port 2222 to copy <code>file.txt</code> to the remote host.</li>
+    </ul>
+<img src="6.png" alt="A description of the image">
+
+</section>
+
+
+      <section id="curl">
+    <h2>cURL Command</h2>
+    <p>The <strong>curl</strong> command transfers data from or to a server using various protocols such as HTTP, HTTPS, FTP, and more.</p>
+
+    <h3>Options</h3>
+    <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 50%;">
+        <thead>
+            <tr>
+                <th><b>Option</b></th>
+                <th><b>Description</b></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><b>-o</b></td>
+                <td>Writes output to a file instead of the terminal.</td>
+            </tr>
+            <tr>
+                <td><b>-O</b></td>
+                <td>Uses the file name from the URL for output.</td>
+            </tr>
+            <tr>
+                <td><b>-I</b></td>
+                <td>Fetches only the HTTP headers.</td>
+            </tr>
+            <tr>
+                <td><b>-X</b></td>
+                <td>Specifies the HTTP method (e.g., GET, POST).</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Examples</h3>
+    <ul>
+        <li><code>curl http://example.com</code> - Fetches the content of the URL.</li>
+        <li><code>curl -o output.html http://example.com</code> - Saves the content to <code>output.html</code>.</li>
+        <li><code>curl -I http://example.com</code> - Retrieves only the headers of the URL.</li>
+    </ul>
+
+<img src="7.png" alt="A description of the image">
+
+</section>
+
+        <section id="diff">
+    <h2>Diff Command</h2>
+    <p>The <strong>diff</strong> command compares two files line by line, highlighting their differences. It is useful for debugging and version control.</p>
+
+    <h3>Options</h3>
+    <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 50%;">
+        <thead>
+            <tr>
+                <th><b>Option</b></th>
+                <th><b>Description</b></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><b>-u</b></td>
+                <td>Outputs differences in unified format.</td>
+            </tr>
+            <tr>
+                <td><b>-c</b></td>
+                <td>Outputs differences in context format.</td>
+            </tr>
+            <tr>
+                <td><b>-r</b></td>
+                <td>Recursively compares directories.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Examples</h3>
+    <ul>
+        <li><code>diff file1.txt file2.txt</code> - Compares the two files.</li>
+        <li><code>diff -u file1.txt file2.txt</code> - Compares files with unified output.</li>
+        <li><code>diff -r dir1 dir2</code> - Recursively compares two directories.</li>
+    </ul>
+
+<img src="8.png" alt="A description of the image" width="600" height="400">
+
+</section>
+
+        <section id="head">
+    <h2>Head Command</h2>
+    <p>The <strong>head</strong> command displays the first few lines of a file. By default, it shows the first 10 lines.</p>
+
+    <h3>Options</h3>
+    <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 50%;">
+        <thead>
+            <tr>
+                <th><b>Option</b></th>
+                <th><b>Description</b></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><b>-n</b></td>
+                <td>Specifies the number of lines to display.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Examples</h3>
+    <ul>
+        <li><code>head file.txt</code> - Displays the first 10 lines of <code>file.txt</code>.</li>
+        <li><code>head -n 20 file.txt</code> - Displays the first 20 lines of <code>file.txt</code>.</li>
+    </ul>
+
+<img src="9.png" alt="A description of the image" width="600" height="400">
+
+
+
+</section>
+
+
+        <section id="tail">
+    <h2>Tail Command</h2>
+    <p>The <strong>tail</strong> command prints the last few lines of a file. By default, it shows the last 10 lines.</p>
+
+    <h3>Options</h3>
+    <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 50%;">
+        <thead>
+            <tr>
+                <th><b>Option</b></th>
+                <th><b>Description</b></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><b>-n</b></td>
+                <td>Specifies the number of lines to display.</td>
+            </tr>
+            <tr>
+                <td><b>-f</b></td>
+                <td>Follows the file as it grows (useful for logs).</td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+<h3>Examples</h3>
+    <ul>
+        <li># Display the last 10 lines of a file</li>
+<code>tail file.txt</code>
+
+<li># Continuously monitor a log file</li>
+<code>tail -f logfile.txt</code>
+    </ul>
+<img src="10.png" alt="A description of the image" width="600" height="400">
+</section>
+
+    </main>
+
+    
+
+    <button id="back-to-top">&uarr;</button>
+
+    <script>
+        const backToTopButton = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

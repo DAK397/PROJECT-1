@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #008B8B;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            height: 150px;
+        }
+
+        nav {
+            background-color: white;
+            overflow: hidden;
+            display: flex;
+            justify-content: right;
+            padding: 0.5rem 1rem;
+            border-bottom: 2px solid #ddd;
+        }
+
+        nav a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #008B8B;
+            color: white;
+            border: 1px solid #008B8B;
+            border-radius: 4px;
+            padding: 12px 14px;
+        }
+
+      
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section h2 {
+            color: #008B8B;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #2F4F4F;
+            color: white;
+        }
+
+       footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #333;
+    color: white;
+    z-index: 500;
+}
+
+footer .social-icons {
+    margin-top: 0.5rem;
+}
+
+footer .social-icons a {
+    margin: 0 10px;
+    display: inline-block;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+footer .social-icons a:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+footer .social-icons img {
+    width: 30px;
+    height: 30px;
+}
+
+        code {
+            background-color: #eee;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+
+
+
+
+       /* Back to Top Button */
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #008B8B;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            z-index: 1000;
+        }
+
+        #back-to-top.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1><strong>LINUX</strong></h1>
+    <p>Linux, an open-source OS known for its stability, security, and versatility.</p>
+</header>
+
+<nav>
+    <a href="#commands"><b>Commands</b></a>
+    <a href="#directories"><b>Directories</b></a>
+    <a href="#about"><b>About Linux</b></a>
+    <a href="N&C.html" target="_blank" id="N&C"><b>Network & Connectivity</b></a>
+</nav>
+
+
+
+<div class="container">
+    <section id="about" class="section">
+        <h2>About Linux</h2>
+        <p>Linux is a powerful and versatile open-source operating system that powers servers, desktops, and embedded devices worldwide. Its flexibility and extensive command-line interface make it a favorite among developers and IT professionals. Just like Windows, iOS, and Mac OS, Linux is an operating system. In fact, one of the most popular platforms on the planet, Android, is powered by the Linux operating system. An operating system is software that manages all of the hardware resources associated with your desktop or laptop. To put it simply, the operating system manages the communication between your software and your hardware. Without the operating system (OS), the software wouldn’t function.</p>
+    </section>
+
+    <section id="commands" class="section">
+        <h2>Linux Commands</h2>
+        <p>Linux commands are instructions entered into a command-line interface (CLI) to interact with the Linux operating system. These commands enable users to perform various tasks such as navigating the file system, managing files and directories, monitoring system performance, configuring networks, processing text, and managing users and permissions. They are powerful tools for automating tasks and managing resources efficiently. Linux commands often follow a modular design, allowing users to combine them with pipes or redirections to create complex workflows. Mastery of Linux commands is essential for system administrators, developers, and IT professionals to harness the full potential of the operating system.</p>
+        <p>The following commands are categorized based on their functionality:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Commands</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>File and Directory Manipulation</td>
+                    <td>ls, cd, pwd, mkdir, rmdir/rm, cp, mv, cat, touch, grep</td>
+                </tr>
+                <tr>
+                    <td>File Operations and Compression</td>
+                    <td>find, tar, gzip, gunzip, zip, chmod, chown, chgrp, ps</td>
+                </tr>
+                <tr>
+                    <td>Network and Connectivity</td>
+                    <td>top, kill, ifconfig, ping, ssh, scp, curl, diff, head, tail</td>
+                </tr>
+                <tr>
+                    <td>Text Processing, Data Backups, and Synchronization</td>
+                    <td>sort, awk, sed, cut, tr, echo, export, history, rsync, screen, uniq</td>
+                </tr>
+                <tr>
+                    <td>Help and Information</td>
+                    <td>apropos, info, alias, uname, df, du, mount, ln, man</td>
+                </tr>
+                <tr>
+                    <td>User and Group Management</td>
+                    <td>init, useradd, usermod, userdel, groupadd, groupmod, groupdel, passwd, sudo</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="directories" class="section">
+        <h2>Linux Directory Structure</h2>
+        <p>Linux directories form the hierarchical structure of the Linux filesystem, which is organized to efficiently manage files and system resources. Each directory serves a specific purpose and contains particular types of files or subdirectories. For example, the root directory (/) is the starting point of the filesystem, while /home houses user-specific data and directories. System configuration files reside in /etc, and essential commands are stored in /bin. Temporary files are placed in /tmp, and /var contains logs and variable data files. Directories like /lib and /usr store shared libraries and user applications, while /proc offers a virtual interface to kernel and process information. This structured layout ensures an organized, logical approach to system administration and file management.</p>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2025 Linux. All rights reserved.</p>
+    <div class="social-icons">
+        <a href="mailto:your-email@example.com" target="_blank" title="Email">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/email.png" alt="Email" />
+        </a>
+        <a href="https://www.linkedin.com/in/your-linkedin-profile" target="_blank" title="LinkedIn">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn" />
+        </a>
+    </div>
+</footer>
+
+
+
+<button id="back-to-top">&uarr;</button>
+
+    <script>
+        // Show the button when the user scrolls down
+        const backToTopButton = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) { // Show button after 300px of scrolling
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        // Scroll back to top when the button is clicked
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+
+</body>
+</html>
